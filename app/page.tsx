@@ -1,5 +1,5 @@
 import TopHeader from "@/components/topHeader";
-import { Sambutan } from "./component/kataSambutan";
+import Sambutan from "./component/kataSambutan";
 import Navbar from "./component/navbar";
 
 export default function Home() {

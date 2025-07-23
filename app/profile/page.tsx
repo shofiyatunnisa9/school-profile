@@ -13,10 +13,10 @@ export default function ProfilePage() {
 
         {/* Sejarah Sekolah */}
         <section className="mb-10">
-          <h2 className="text-xl font-semibold border-l-5 border-[#FAA41A] pl-3 mb-3">
+          <h2 className="text-xl font-bold border-l-5 border-[#FAA41A] pl-3 mb-3">
             Sejarah Sekolah
           </h2>
-          <p className="text-justify leading-relaxed text-sm text-gray-700">
+          <p className="text-justify leading-relaxed text-md text-gray-700">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas nemo
             rerum pariatur aliquid neque, doloribus excepturi accusamus! Quam
             blanditiis natus maiores ipsa consequuntur cumque tempora pariatur
@@ -34,19 +34,19 @@ export default function ProfilePage() {
 
         {/* Visi Misi */}
         <section className="mb-10">
-          <h2 className="text-xl font-semibold border-l-5 border-[#FAA41A] pl-3 mb-3">
+          <h2 className="text-xl font-bold border-l-5 border-[#FAA41A] pl-3 mb-3">
             Visi
           </h2>
-          <p className="italic text-gray-700">
+          <p className="italic text-gray-700 text-md">
             “Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
             tempora alias perspiciatis veniam iusto ut ex modi. Labore, odio
             fugiat.”
           </p>
 
-          <h2 className="text-xl font-semibold mt-6 border-l-5 border-[#FAA41A] pl-3 mb-3">
+          <h2 className="text-xl font-bold mt-6 border-l-5 border-[#FAA41A] pl-3 mb-3">
             Misi
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-sm text-gray-700">
+          <ul className="list-disc list-inside space-y-2 text-md text-gray-700">
             <li>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Assumenda, mollitia.
@@ -68,13 +68,22 @@ export default function ProfilePage() {
 
         {/* Struktur Organisasi */}
         <section className="mb-10">
-          <h2 className="text-xl font-semibold border-l-5 border-[#FAA41A] pl-3 mb-4">
+          <h2 className="text-xl font-bold border-l-5 border-[#FAA41A] pl-3 mb-4">
             Struktur Organisasi
           </h2>
+          <p className="text-gray-700 text-justify">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Consequatur commodi fugit repellat iure reprehenderit aliquam harum,
+            labore adipisci eum non quis exercitationem quidem necessitatibus
+            soluta cupiditate mollitia iusto aspernatur eaque. Consequuntur in
+            non voluptates optio totam reprehenderit! Distinctio, expedita
+            ducimus odio excepturi labore deserunt, quas iste eos, dolores
+            sapiente non!
+          </p>
           <img
-            src="/struktur-organisasi.jpg"
+            src="/struktur-organisasi.png"
             alt="Struktur Organisasi"
-            className="mt-4 w-full max-w-2xl mx-auto rounded-md border"
+            className="mt-4 w-full max-w-4xl mx-auto rounded-md border"
           />
         </section>
       </main>

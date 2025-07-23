@@ -1,4 +1,4 @@
-export function Sambutan() {
+export default function Sambutan() {
   return (
     <section className="py-12 px-10 bg-[#e5e5e5]">
       <div className="max-w-4xl mx-auto bg-white rounded-xl overflow-hidden flex flex-col md:flex-row shadow">
