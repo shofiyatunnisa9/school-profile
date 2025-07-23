@@ -6,8 +6,6 @@ import Footer from "@/components/footer";
 export default function Home() {
   return (
     <>
-      <TopHeader />
-      <Navbar />
       <main className="font-sans pt-25">
         <section className="w-full">
           <img
@@ -17,7 +15,6 @@ export default function Home() {
           />
         </section>
         <Sambutan />
-        <Footer />
       </main>
     </>
   );

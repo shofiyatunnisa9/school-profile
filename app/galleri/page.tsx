@@ -27,8 +27,6 @@ export default function GalleriesPage() {
 
   return (
     <div>
-      <TopHeader />
-      <Navbar />
       <div className="p-5 relative z-0">
         <h1 className="text-3xl font-bold text-[#0E1A35] mb-8 text-center pt-28">
           Galleri Sekolah Xyz
