@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 export default function Navbar() {
   return (
     <>
-      <nav className="fixed top-9 left-0 right-0 z-50 bg-[#E5E5E5] shadow px-4 py-3 flex items-center gap-25">
+      <nav className="fixed top-9 left-0 right-0 z-50 bg-[#E5E5E5] shadow px-4 py-3 flex items-center gap-35">
         <div className="flex items-center gap-2">
           <img src="/logo1.png" alt="Logo" className="w-10 h-10" />
           <h1 className="text-[#0E1A35] font-bold text-lg">Sekolah Xyz</h1>
@@ -32,7 +32,7 @@ export default function Navbar() {
           </li>
           <li className="flex gap-1 items-center">
             <FaSchoolFlag />
-            Fasilitas
+            <Link href={"/fasilitas"}>Fasilitas</Link>
           </li>
           <li className="flex gap-1 items-center">
             <MdPhotoLibrary />

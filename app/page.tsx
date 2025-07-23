@@ -1,6 +1,7 @@
 import TopHeader from "@/components/topHeader";
 import Sambutan from "./component/kataSambutan";
 import Navbar from "./component/navbar";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
           />
         </section>
         <Sambutan />
+        <Footer />
       </main>
     </>
   );
