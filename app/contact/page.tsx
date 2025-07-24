@@ -59,7 +59,7 @@ export default function Contact() {
               ></textarea>
               <button
                 type="submit"
-                className="bg-[#0E1A35] text-white px-4 py-2 rounded hover:bg-[#1f2e50] text-sm justify-end"
+                className="bg-[#0E1A35] text-white px-4 py-2 rounded hover:bg-[#1f2e50] text-sm"
               >
                 Kirim
               </button>

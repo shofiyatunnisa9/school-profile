@@ -40,7 +40,7 @@ export default function Navbar() {
           </li>
           <li className="flex gap-1 items-center">
             <FaInfoCircle />
-            Informasi
+            <Link href={"/information"}>Informasi</Link>
           </li>
           <li className="flex gap-1 items-center">
             <RiContactsBook2Fill />
