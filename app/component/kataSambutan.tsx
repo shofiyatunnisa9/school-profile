@@ -1,7 +1,7 @@
 export default function Sambutan() {
   return (
-    <section className="py-12 px-10 bg-[#e5e5e5]">
-      <div className="max-w-4xl mx-auto bg-white rounded-xl overflow-hidden flex flex-col md:flex-row shadow">
+    <section className="py-12 px-10 bg-white">
+      <div className="max-w-4xl mx-auto bg-[#e5e5e5] rounded-xl overflow-hidden flex flex-col md:flex-row shadow">
         {/* Foto kepala sekolah */}
         <div className="md:w-1/3 flex items-center justify-center p-4">
           <img

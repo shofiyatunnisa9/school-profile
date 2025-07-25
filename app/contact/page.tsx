@@ -10,13 +10,13 @@ export default function Contact() {
           Hubungi Kami
         </h1>
 
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <div>
           {/* Informasi Kontak */}
           <div className="bg-white p-6 rounded shadow-md space-y-4">
             <h2 className="text-xl font-semibold text-[#0E1A35] border-l-5 border-[#FAA41A] pl-3 mb-3">
               Kontak Sekolah
             </h2>
-            <div className="pt-10 space-y-5">
+            <div className="pt-5 space-y-5">
               <div className="flex items-center gap-2">
                 <FaLocationDot />
                 <p>Jl. Pendidikan No. 01, Kec. Singkarak</p>
@@ -37,7 +37,7 @@ export default function Contact() {
           </div>
 
           {/* Form Kontak */}
-          <div className="bg-white p-6 rounded shadow-md">
+          {/* <div className="bg-white p-6 rounded shadow-md">
             <h2 className="text-xl font-semibold text-[#0E1A35] mb-4 border-l-5 border-[#FAA41A] pl-3">
               Kirim Pesan
             </h2>
@@ -64,7 +64,7 @@ export default function Contact() {
                 Kirim
               </button>
             </form>
-          </div>
+          </div> */}
         </div>
         {/* Denah Lokasi */}
         <div className="bg-white p-6 rounded shadow-md mt-8">
@@ -73,7 +73,7 @@ export default function Contact() {
           </h2>
           <div className="w-full h-90 rounded overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.557539125655!2d100.6024369743575!3d-0.655090935260719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4d520d1f13e7f%3A0xea1fcd1eaf836fb4!2sLERENG%20GREEN%20VIEW!5e0!3m2!1sid!2sid!4v1753289541038!5m2!1sid!2sid"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.3949051377678!2d100.5867926695247!3d-0.62674265893552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4d5b10a1572b9%3A0x88843f60227ab337!2sSD%20N%2002%20Kacang!5e0!3m2!1sid!2sid!4v1753346712888!5m2!1sid!2sid"
               width="100%"
               height="100%"
               style={{ border: 0 }}

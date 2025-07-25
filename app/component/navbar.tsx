@@ -48,9 +48,15 @@ export default function Navbar() {
           </li>
         </ul>
 
-        <Button className="bg-[#14213D] text-[#E5E5E5] cursor-pointer">
+        <Link
+          href={"/login"}
+          className="bg-[#0E1A35] text-white px-4 py-2 rounded hover:bg-[#1f2e50] text-sm"
+        >
           Login
-        </Button>
+        </Link>
+        {/* <Button className="bg-[#14213D] text-[#E5E5E5] cursor-pointer">
+          Login
+        </Button> */}
       </nav>
     </>
   );

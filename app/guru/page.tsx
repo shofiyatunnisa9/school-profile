@@ -1,10 +1,6 @@
 "use client";
-
-import TopHeader from "@/components/topHeader";
 import { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import Navbar from "../component/navbar";
-import Footer from "@/components/footer";
 
 const teachers = [
   {
@@ -50,17 +46,6 @@ const teachers = [
 ];
 
 export default function GuruList() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (dir: "left" | "right") => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({
-        left: dir === "left" ? -300 : 300,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <>
       <div className="relative px-8 py-16 bg-[#f7f7f7] pt-28">
@@ -68,27 +53,16 @@ export default function GuruList() {
           Guru dan Staff
         </h1>
 
-        {/* scroll horizontal*/}
-        <button
-          onClick={() => scroll("left")}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-2 rounded-full hover:bg-gray-100"
-        >
-          <FaChevronLeft className="cursor-pointer" />
-        </button>
-
-        <div
-          ref={scrollRef}
-          className="flex overflow-hidden px-4 scroll-smooth gap-5 relative z-0"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {teachers.map((teacher, idx) => (
             <div
               key={idx}
-              className="relative group min-w-[310px] max-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex flex-col  gap-5"
+              className="bg-white shadow-md rounded overflow-hidden group transition-transform duration-300 hover:scale-[1.02]"
             >
               <img
                 src={teacher.image}
                 alt={teacher.name}
-                className="h-72 w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-full h-68 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="p-3 text-center">
                 <h3 className="text-[#0E1A35] font-bold text-sm">
@@ -101,13 +75,6 @@ export default function GuruList() {
             </div>
           ))}
         </div>
-
-        <button
-          onClick={() => scroll("right")}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-2 rounded-full hover:bg-gray-100"
-        >
-          <FaChevronRight className="cursor-pointer" />
-        </button>
       </div>
     </>
   );
