@@ -4,6 +4,8 @@ import "./globals.css";
 import Footer from "@/components/footer";
 import TopHeader from "@/components/topHeader";
 import Navbar from "./component/navbar";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ClientLayout from "@/components/ClientLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,11 +32,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <TopHeader />
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-
-        <Footer />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
