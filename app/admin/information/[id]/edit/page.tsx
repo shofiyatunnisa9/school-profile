@@ -2,11 +2,13 @@
 import { useRouter, useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import AdminNavbar from "@/components/navbarAdmin";
+import { toast } from "sonner";
 
 export default function EditPage() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState("");
+  const [imageFile, setImageFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { id } = useParams();
@@ -25,24 +27,69 @@ export default function EditPage() {
     }
   }, [id]);
 
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      // Validasi tipe file
+      if (!file.type.startsWith("image/")) {
+        toast.error("File harus berupa gambar!");
+        return;
+      }
+
+      // Validasi ukuran file (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        toast.error("Ukuran file maksimal 5MB!");
+        return;
+      }
+
+      setImageFile(file);
+      setImage(""); // Reset URL input
+    }
+  };
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
+      let imageUrl = image; // Gunakan URL yang ada
+
+      // Jika ada file yang diupload
+      if (imageFile) {
+        const formData = new FormData();
+        formData.append("image", imageFile);
+
+        // Upload file ke API
+        const uploadResponse = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (uploadResponse.ok) {
+          const uploadResult = await uploadResponse.json();
+          imageUrl = uploadResult.url;
+        } else {
+          toast.error("Gagal upload gambar");
+          setIsLoading(false);
+          return;
+        }
+      }
+
+      // Update data informasi
       const response = await fetch(`/api/Information/${id}`, {
         method: "PUT",
-        body: JSON.stringify({ title, content, image }),
+        body: JSON.stringify({ title, content, image: imageUrl }),
         headers: { "Content-Type": "application/json" },
       });
 
       if (response.ok) {
+        toast.success("Informasi berhasil diupdate!");
         router.push("/admin/information");
       } else {
-        alert("Gagal mengupdate informasi");
+        toast.error("Gagal mengupdate informasi");
       }
     } catch (error) {
-      alert("Terjadi kesalahan");
+      toast.error("Terjadi kesalahan");
     } finally {
       setIsLoading(false);
     }
@@ -80,25 +127,57 @@ export default function EditPage() {
                 />
               </div>
 
-              {/* Image URL */}
+              {/* Image Upload */}
               <div>
                 <label
                   htmlFor="image"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  URL Gambar
+                  Gambar Informasi
                 </label>
-                <input
-                  id="image"
-                  type="url"
-                  placeholder="https://example.com/image.jpg"
-                  value={image}
-                  onChange={(e) => setImage(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-                <p className="text-xs text-gray-500 mt-1">
-                  Kosongkan jika tidak ada gambar
-                </p>
+                <div className="space-y-3">
+                  {/* File Upload */}
+                  <div>
+                    <label
+                      htmlFor="imageFile"
+                      className="block text-sm text-gray-600 mb-2"
+                    >
+                      Upload dari device:
+                    </label>
+                    <input
+                      id="imageFile"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                    <p className="text-xs text-gray-500 mt-1">
+                      Format: JPG, PNG, GIF. Maksimal 5MB
+                    </p>
+                  </div>
+
+                  {/* URL Input */}
+                  <div>
+                    <label
+                      htmlFor="imageUrl"
+                      className="block text-sm text-gray-600 mb-2"
+                    >
+                      Atau masukkan URL gambar:
+                    </label>
+                    <input
+                      id="imageUrl"
+                      type="url"
+                      placeholder="https://example.com/image.jpg"
+                      value={image}
+                      onChange={(e) => {
+                        setImage(e.target.value);
+                        setImageFile(null); // Reset file input
+                      }}
+                      disabled={!!imageFile}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* Content */}
@@ -121,25 +200,33 @@ export default function EditPage() {
               </div>
 
               {/* Preview Image */}
-              {image && (
+              {(image || imageFile) && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Preview Gambar
                   </label>
                   <div className="w-32 h-24 bg-gray-100 rounded-lg overflow-hidden border">
-                    <img
-                      src={image}
-                      alt="Preview"
-                      className="object-cover w-full h-full"
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                        const errorDiv = e.currentTarget
-                          .nextElementSibling as HTMLElement;
-                        if (errorDiv) {
-                          errorDiv.style.display = "flex";
-                        }
-                      }}
-                    />
+                    {imageFile ? (
+                      <img
+                        src={URL.createObjectURL(imageFile)}
+                        alt="Preview"
+                        className="object-cover w-full h-full"
+                      />
+                    ) : (
+                      <img
+                        src={image}
+                        alt="Preview"
+                        className="object-cover w-full h-full"
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                          const errorDiv = e.currentTarget
+                            .nextElementSibling as HTMLElement;
+                          if (errorDiv) {
+                            errorDiv.style.display = "flex";
+                          }
+                        }}
+                      />
+                    )}
                     <div className="hidden w-full h-full items-center justify-center text-gray-400 text-xs">
                       Invalid URL
                     </div>

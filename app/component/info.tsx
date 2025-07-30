@@ -1,6 +1,32 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+type InfoHome = {
+  id: string;
+  title: string;
+  content: string;
+  image: string;
+  createdAt: string;
+};
+
+type ApiRes = {
+  code: number;
+  data: InfoHome[];
+};
 
 export default function InfoHome() {
+  const [info, setInfo] = useState<InfoHome[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("api/Information");
+      const result: ApiRes = await res.json();
+      if (res.ok) setInfo(result.data);
+    };
+    fetchData();
+  });
+
   return (
     <section className="bg-white py-10 px-6 md:px-20">
       <div className="flex justify-between items-center mb-5">
@@ -14,51 +40,24 @@ export default function InfoHome() {
         </Link>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {[
-          {
-            image: "/informasi/1.jpeg",
-            title: "Tahun Ajaran Baru Dimulai",
-            caption:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-            slug: "tahun-ajaran-baru",
-          },
-          {
-            image: "/informasi/2.jpg",
-            title: "Lomba HUT RI Ke-80",
-            caption:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-            slug: "lomba-hut-ri",
-          },
-          {
-            image: "/informasi/3.jpg",
-            title: "Kunjungan dari Dinas Pendidikan",
-            caption:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-            slug: "kunjungan-dinas",
-          },
-        ].map((item, index) => (
-          <div
-            key={index}
-            className="bg-white rounded shadow overflow-hidden hover:scale-[1.02] transition"
-          >
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-45 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="text-sm font-bold text-[#0E1A35]">{item.title}</h3>
-              <p className="text-xs text-[#0E1A35] text-justify">
-                {item.caption}
-              </p>
-              <Link
-                href={`/informasi/${item.slug}`}
-                className="text-xs text-yellow-600 hover:underline mt-2 inline-block"
-              >
-                Baca Selengkapnya....
-              </Link>
+        {info.slice(0, 3).map((item) => (
+          <Link key={item.id} href={`information/${item.id}`}>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+              {item.image && (
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-48 object-cover"
+                />
+              )}
+              <div className="p-4">
+                <h2 className="text-lg font-semibold mb-2">{item.title}</h2>
+                <p className="text-sm text-gray-600 line-clamp-3">
+                  {item.content}
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

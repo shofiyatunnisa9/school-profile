@@ -8,14 +8,18 @@ export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const info = await prisma.information.findUnique({
-    where: { id: params.id },
-  });
-  if (!info) return NextResponse.json({ error: "Not found" }, { status: 404 });
+  const { id } = params;
+
+  const info = await prisma.information.findUnique({ where: { id } });
+
+  if (!info) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
   return NextResponse.json({
     code: 200,
-    status: "Succes",
-    message: "Get detail datas",
+    status: "Success",
+    message: "Get detail data",
     data: info,
   });
 }
@@ -25,19 +29,22 @@ export async function PUT(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
+  const { id } = params;
   const body = await req.json();
+
   const updated = await prisma.information.update({
-    where: { id: params.id },
+    where: { id },
     data: {
       title: body.title,
       content: body.content,
       image: body.image || "",
     },
   });
+
   return NextResponse.json({
     code: 200,
-    status: "Succes",
-    message: "Get Update datas",
+    status: "Success",
+    message: "Update successful",
     data: updated,
   });
 }
@@ -47,6 +54,13 @@ export async function DELETE(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  await prisma.information.delete({ where: { id: params.id } });
-  return NextResponse.json({ code: 200, status: "Succes", message: "Deleted" });
+  const { id } = params;
+
+  await prisma.information.delete({ where: { id } });
+
+  return NextResponse.json({
+    code: 200,
+    status: "Success",
+    message: "Deleted",
+  });
 }

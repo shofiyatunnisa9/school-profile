@@ -1,72 +1,57 @@
 "use client";
 
-import axios from "axios";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import images from "@/public/informasi/1.jpeg";
+import Link from "next/link";
 
-type InformationProps = {
+type Information = {
+  id: string;
   title: string;
   content: string;
   image: string;
   createdAt: string;
 };
 
-type Response = {
-  status: number;
-  message: string;
-  data: InformationProps[];
+type ApiResponse = {
+  code: number;
+  data: Information[];
 };
+
 export default function InformationPage() {
-  const [data, setData] = useState<Response>();
+  const [informations, setInformations] = useState<Information[]>([]);
 
   useEffect(() => {
-    axios
-      .get("https://apifaker.up.railway.app/api/v1/fakeAPI?count=5", {
-        headers: {
-          type: JSON.stringify({
-            title: "sentence",
-            content: "paragraf",
-            image: "landscape",
-            createdAt: "timestamp",
-          }),
-        },
-      })
-      .then((response) => setData(response.data))
-      .catch((error) => console.error(error));
+    const fetchData = async () => {
+      const res = await fetch("/api/Information");
+      const result: ApiResponse = await res.json();
+      if (res.ok) setInformations(result.data);
+    };
+    fetchData();
   }, []);
-  if (!data) return <p>Loading...</p>;
+
   return (
-    <div className="pt-28 px-6">
-      <h1 className="text-3xl font-bold text-center text-[#0E1A35] mb-10">
+    <div className="pt-28 px-6 max-w-6xl mx-auto">
+      <h1 className="text-3xl font-bold mb-6 text-[#0E1A35] text-center">
         Informasi Sekolah
       </h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data.data.map((item, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-md rounded overflow-hidden group transition-transform duration-300 hover:scale-[1.02]"
-          >
-            <img
-              src={item.image}
-              alt={`Info ${index + 1}`}
-              className="w-full h-68 object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div className="p-4 text-[#0E1A35]">
-              <h2 className="text-lg font-bold mb-2">{item.title}</h2>
-              <p className="text-sm text-justify text-gray-700 line-clamp-3">
-                {item.content}
-              </p>
-
-              <Link
-                href={`/information/${item.title}`}
-                className="inline-block mt-4 text-sm font-semibold text-[#FAA41A] hover:underline"
-              >
-                Baca Selengkapnya...
-              </Link>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {informations.map((info) => (
+          <Link key={info.id} href={`/information/${info.id}`}>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+              {info.image && (
+                <img
+                  src={info.image}
+                  alt={info.title}
+                  className="w-full h-48 object-cover"
+                />
+              )}
+              <div className="p-4">
+                <h2 className="text-lg font-semibold mb-2">{info.title}</h2>
+                <p className="text-sm text-gray-600 line-clamp-3">
+                  {info.content}
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

@@ -1,10 +1,12 @@
 "use client";
 
+import { useLogout } from "@/app/hook/useAuth";
 import Link from "next/link";
 import { FaHome, FaInfoCircle } from "react-icons/fa";
 import { LuLogOut } from "react-icons/lu";
 
 export default function AdminNavbar() {
+  const { logout } = useLogout();
   return (
     <nav className="fixed w-full bg-[#0E1A35] text-white px-6 py-4 flex justify-between items-center shadow">
       <div className="flex items-center gap-2">
@@ -32,10 +34,7 @@ export default function AdminNavbar() {
         </li>
         <li>
           <button
-            onClick={() => {
-              localStorage.removeItem("access-token");
-              window.location.href = "/login";
-            }}
+            onClick={logout}
             className="hover:text-[#ffd500] cursor-pointer flex items-center gap-2"
           >
             <LuLogOut />

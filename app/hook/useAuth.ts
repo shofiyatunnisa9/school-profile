@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner"
+import { toast } from "sonner";
 
 interface loginSchemaDTO {
   email: string;
@@ -26,11 +26,11 @@ export function useLogin() {
         throw new Error(json.message || "Login gagal");
       }
 
-      return json.token;
+      return json;
     },
 
-    onSuccess: (token) => {
-      localStorage.setItem("access-token", token);
+    onSuccess: (data) => {
+      localStorage.setItem("access-token", data.token);
       toast.success("Login berhasil!");
       router.push("/admin/dashboard");
     },
@@ -41,4 +41,16 @@ export function useLogin() {
   });
 
   return { mutate, isPending };
+}
+
+export function useLogout() {
+  const router = useRouter();
+
+  const logout = () => {
+    localStorage.removeItem("access-token");
+    toast.success("Logout berhasil!");
+    router.push("/login");
+  };
+
+  return { logout };
 }

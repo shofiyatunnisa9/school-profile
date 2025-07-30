@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/footer";
-import TopHeader from "@/components/topHeader";
-import Navbar from "./component/navbar";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ClientLayout from "@/components/ClientLayout";
 
 const geistSans = Geist({

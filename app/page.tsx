@@ -1,8 +1,4 @@
-import TopHeader from "@/components/topHeader";
 import Sambutan from "./component/kataSambutan";
-import Navbar from "./component/navbar";
-import Footer from "@/components/footer";
-import Link from "next/link";
 import GuruListHome from "./component/guru";
 import InfoHome from "./component/info";
 import GalleryListHome from "./component/galleriHome";
@@ -20,9 +16,7 @@ export default function Home() {
           />
         </section>
         <Sambutan />
-        {/* Informasi Terbaru */}
         <InfoHome />
-        {/* Guru dan staff */}
         <GuruListHome />
         <GalleryListHome />
         <ContactHome />
