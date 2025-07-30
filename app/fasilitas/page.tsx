@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function FasilityPage() {
   const fasility = [
     {
@@ -32,7 +30,7 @@ export default function FasilityPage() {
               key={idx}
               className="relative group overflow-hidden rounded-sm shadow-md"
             >
-              <Image
+              <img
                 src={item.images}
                 alt={`Foto ${idx + 1}`}
                 className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-110"

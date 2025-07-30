@@ -1,6 +1,5 @@
 "use client";
 import AdminNavbar from "@/components/navbarAdmin";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -193,13 +192,13 @@ export default function CreatePage() {
                   </label>
                   <div className="w-32 h-24 bg-gray-100 rounded-lg overflow-hidden border">
                     {imageFile ? (
-                      <Image
+                      <img
                         src={URL.createObjectURL(imageFile)}
                         alt="Preview"
                         className="object-cover w-full h-full"
                       />
                     ) : (
-                      <Image
+                      <img
                         src={image}
                         alt="Preview"
                         className="object-cover w-full h-full"

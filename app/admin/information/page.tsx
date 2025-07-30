@@ -1,6 +1,5 @@
 "use client";
 import AdminNavbar from "@/components/navbarAdmin";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
@@ -95,11 +94,10 @@ export default function AdminInfoPage() {
                     <td className="py-4 px-6">
                       <div className="w-20 h-14 bg-gray-100 rounded-lg overflow-hidden border">
                         {info.image ? (
-                          <Image
+                          <img
                             src={info.image}
                             alt={info.title}
                             className="object-cover w-full h-full"
-                            unoptimized
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">

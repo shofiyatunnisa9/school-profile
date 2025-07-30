@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 export default function GalleryListHome() {
@@ -35,7 +34,7 @@ export default function GalleryListHome() {
             key={index}
             className="relative group overflow-hidden rounded-sm shadow-md"
           >
-            <Image
+            <img
               src={item.image}
               alt={item.caption}
               className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-110"

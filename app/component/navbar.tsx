@@ -6,19 +6,13 @@ import { RiContactsBook2Fill } from "react-icons/ri";
 import { TbTargetArrow } from "react-icons/tb";
 import { FaInfoCircle } from "react-icons/fa";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Navbar() {
   return (
     <>
       <nav className="fixed top-9 left-0 right-0 z-50 bg-[#E5E5E5] shadow px-4 py-3 flex justify-between items-center ">
         <div className="flex items-center gap-2">
-          <Image
-            src="/logo1.png"
-            alt="Logo"
-            className="w-10 h-10"
-            unoptimized
-          />
+          <img src="/logo1.png" alt="Logo" className="w-10 h-10" />
           <h1 className="text-[#0E1A35] font-bold text-lg">Sekolah Xyz</h1>
         </div>
         <ul className="hidden md:flex gap-6 text-[#0E1A35] font-medium">

@@ -3,7 +3,6 @@ import { useRouter, useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import AdminNavbar from "@/components/navbarAdmin";
 import { toast } from "sonner";
-import Image from "next/image";
 
 export default function EditPage() {
   const [title, setTitle] = useState("");
@@ -208,13 +207,13 @@ export default function EditPage() {
                   </label>
                   <div className="w-32 h-24 bg-gray-100 rounded-lg overflow-hidden border">
                     {imageFile ? (
-                      <Image
+                      <img
                         src={URL.createObjectURL(imageFile)}
                         alt="Preview"
                         className="object-cover w-full h-full"
                       />
                     ) : (
-                      <Image
+                      <img
                         src={image}
                         alt="Preview"
                         className="object-cover w-full h-full"
