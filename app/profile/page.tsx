@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function ProfilePage() {
   return (
     <>
@@ -75,10 +77,11 @@ export default function ProfilePage() {
             ducimus odio excepturi labore deserunt, quas iste eos, dolores
             sapiente non!
           </p>
-          <img
+          <Image
             src="/struktur-organisasi.png"
             alt="Struktur Organisasi"
             className="mt-4 w-full max-w-4xl mx-auto rounded-md border"
+            unoptimized
           />
         </section>
       </main>

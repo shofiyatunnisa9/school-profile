@@ -3,16 +3,18 @@ import GuruListHome from "./component/guru";
 import InfoHome from "./component/info";
 import GalleryListHome from "./component/galleriHome";
 import ContactHome from "./component/contactHome";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
       <main className="font-sans pt-25">
         <section className="w-full">
-          <img
+          <Image
             src="/school.jpg"
             alt="Gedung Sekolah"
             className="w-full object-cover"
+            unoptimized
           />
         </section>
         <Sambutan />

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const teachers = [
   {
     image: "/guru/10.jpg",
@@ -57,7 +59,7 @@ export default function GuruList() {
               key={idx}
               className="bg-white shadow-md rounded overflow-hidden group transition-transform duration-300 hover:scale-[1.02]"
             >
-              <img
+              <Image
                 src={teacher.image}
                 alt={teacher.name}
                 className="w-full h-68 object-cover group-hover:scale-105 transition-transform duration-300"

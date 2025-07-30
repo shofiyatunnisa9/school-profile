@@ -3,7 +3,6 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-// GET DETAIL
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }

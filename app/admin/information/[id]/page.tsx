@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import AdminNavbar from "@/components/navbarAdmin";
+import Image from "next/image";
 
 interface Info {
   title: string;
@@ -27,7 +28,7 @@ export default function InfoDetailPage() {
       <div className="max-w-4xl mx-auto pt-28 p-6">
         <h1 className="text-2xl font-bold mb-4 text-[#0E1A35]">{info.title}</h1>
         {info.image && (
-          <img
+          <Image
             src={info.image}
             className="mb-4 w-full max-h-[400px] object-cover"
             alt={info.title}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -44,7 +45,7 @@ export default function InfoHome() {
           <Link key={item.id} href={`information/${item.id}`}>
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
               {item.image && (
-                <img
+                <Image
                   src={item.image}
                   alt={item.title}
                   className="w-full h-48 object-cover"
