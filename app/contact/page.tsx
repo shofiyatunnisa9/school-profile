@@ -11,7 +11,6 @@ export default function Contact() {
         </h1>
 
         <div>
-          {/* Informasi Kontak */}
           <div className="bg-white p-6 rounded shadow-md space-y-4">
             <h2 className="text-xl font-semibold text-[#0E1A35] border-l-5 border-[#FAA41A] pl-3 mb-3">
               Kontak Sekolah
@@ -35,38 +34,8 @@ export default function Contact() {
               </div>
             </div>
           </div>
-
-          {/* Form Kontak */}
-          {/* <div className="bg-white p-6 rounded shadow-md">
-            <h2 className="text-xl font-semibold text-[#0E1A35] mb-4 border-l-5 border-[#FAA41A] pl-3">
-              Kirim Pesan
-            </h2>
-            <form className="space-y-4">
-              <input
-                type="text"
-                placeholder="Nama"
-                className="w-full px-4 py-2 border rounded text-sm"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full px-4 py-2 border rounded text-sm"
-              />
-              <textarea
-                placeholder="Pesan"
-                rows={4}
-                className="w-full px-4 py-2 border rounded text-sm"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-[#0E1A35] text-white px-4 py-2 rounded hover:bg-[#1f2e50] text-sm"
-              >
-                Kirim
-              </button>
-            </form>
-          </div> */}
         </div>
-        {/* Denah Lokasi */}
+
         <div className="bg-white p-6 rounded shadow-md mt-8">
           <h2 className="text-xl font-semibold text-[#0E1A35] mb-4 border-l-5 border-[#FAA41A] pl-3">
             Denah Lokasi

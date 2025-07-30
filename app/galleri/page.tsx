@@ -1,6 +1,3 @@
-import TopHeader from "@/components/topHeader";
-import Navbar from "../component/navbar";
-
 export default function GalleriesPage() {
   const galleries = [
     {

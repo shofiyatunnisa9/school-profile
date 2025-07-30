@@ -1,7 +1,3 @@
-import TopHeader from "@/components/topHeader";
-import Navbar from "../component/navbar";
-import { title } from "process";
-
 export default function FasilityPage() {
   const fasility = [
     {

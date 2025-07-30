@@ -1,11 +1,6 @@
-import TopHeader from "@/components/topHeader";
-import Navbar from "../component/navbar";
-
 export default function ProfilePage() {
   return (
     <>
-      <TopHeader />
-      <Navbar />
       <main className="pt-30 min-h-screen px-6 md:px-16 py-10 bg-[#f9f9f9] text-gray-800">
         <h1 className="text-3xl font-bold text-[#0E1A35] mb-8 text-center">
           Profile Sekolah
