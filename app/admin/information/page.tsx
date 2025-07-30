@@ -6,8 +6,17 @@ import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { toast } from "sonner";
 
+type InformationProps = {
+  id: string;
+  title: string;
+  content: string;
+  image: string | null;
+  createdAt: string;
+  updateAt: string;
+};
+
 export default function AdminInfoPage() {
-  const [infos, setInfos] = useState([]);
+  const [infos, setInfos] = useState<InformationProps[]>([]);
 
   useEffect(() => {
     fetch("/api/Information")
@@ -76,7 +85,7 @@ export default function AdminInfoPage() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {infos.map((info: any) => (
+                {infos.map((info: InformationProps) => (
                   <tr
                     key={info.id}
                     className="hover:bg-gray-50 transition-colors"

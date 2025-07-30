@@ -35,8 +35,12 @@ export function useLogin() {
       router.push("/admin/dashboard");
     },
 
-    onError: (error: any) => {
-      toast.error(error.message || "Terjadi kesalahan saat login");
+    onError: (error: unknown) => {
+      if (error instanceof Error) {
+        toast.error(error.message);
+      } else {
+        toast.error("Terjadi kesalahan saat login");
+      }
     },
   });
 
