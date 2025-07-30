@@ -14,12 +14,20 @@ export async function POST(req: NextRequest) {
   });
 
   if (!user) {
-    return NextResponse.json({ message: "Email tidak ditemukan", code: "404" });
+    return NextResponse.json({
+      code: "404",
+      status: "Failed",
+      message: "Email tidak ditemukan",
+    });
   }
   const isPassValid = await bcrypt.compare(password, user.password);
 
   if (!isPassValid) {
-    return NextResponse.json({ message: "Password salah", code: "401" });
+    return NextResponse.json({
+      code: "401",
+      status: "Failed",
+      message: "Password salah",
+    });
   }
 
   const token = jwt.sign(
@@ -32,8 +40,9 @@ export async function POST(req: NextRequest) {
   );
 
   return NextResponse.json({
-    message: "Login Berhasil",
     code: "200",
+    status: "Succes",
+    message: "Login Berhasil",
     token,
     user: {
       id: user.id,

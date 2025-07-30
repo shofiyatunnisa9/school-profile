@@ -6,6 +6,7 @@ import TopHeader from "./topHeader";
 import Navbar from "@/app/component/navbar";
 import Footer from "./footer";
 import { usePathname } from "next/navigation";
+import { Toaster } from "sonner";
 
 export default function ClientLayout({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -17,6 +18,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
       {!isAdmin && <Navbar />}
       <main className="flex-grow">{children}</main>
       {!isAdmin && <Footer />}
+      <Toaster />
     </QueryClientProvider>
   );
 }

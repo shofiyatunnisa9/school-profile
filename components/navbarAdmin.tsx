@@ -6,7 +6,7 @@ import { LuLogOut } from "react-icons/lu";
 
 export default function AdminNavbar() {
   return (
-    <nav className="bg-[#0E1A35] text-white px-6 py-4 flex justify-between items-center shadow">
+    <nav className="fixed w-full bg-[#0E1A35] text-white px-6 py-4 flex justify-between items-center shadow">
       <div className="flex items-center gap-2">
         <img src="/logo1.png" alt="Logo" className="w-10 h-10" />
         <h1 className=" font-bold text-lg">Admin Sekolah Xyz</h1>
