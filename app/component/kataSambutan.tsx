@@ -1,7 +1,7 @@
 export default function Sambutan() {
   return (
     <section className="py-12 px-10 bg-white">
-      <div className="max-w-4xl mx-auto bg-[#e5e5e5] rounded-xl overflow-hidden flex flex-col md:flex-row shadow">
+      <div className="max-w-4xl mx-auto bg-[#ffffff] rounded-xl overflow-hidden flex flex-col md:flex-row shadow">
         {/* Foto kepala sekolah */}
         <div className="md:w-1/3 flex items-center justify-center p-4">
           <img
@@ -40,7 +40,9 @@ export default function Sambutan() {
           </p>
 
           <div className="mt-6">
-            <p className="font-semibold text-[#0E1A35]">Bapak , S.Pd</p>
+            <p className="font-semibold text-[#0E1A35]">
+              Bapak Kepala Sekolah, S.Pd
+            </p>
             <p className="text-sm text-gray-500">Kepala Sekolah</p>
             <p className="text-xs text-gray-500 italic">NIP. 0010001000101</p>
           </div>
