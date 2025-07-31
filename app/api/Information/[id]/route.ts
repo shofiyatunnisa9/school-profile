@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
+import type { NextApiRequest } from "next";
+import type { NextRequest as AppRequest } from "next/server";
+import type { NextFetchEvent } from "next/server";
+import RouteContext from "next";
 
 const prisma = new PrismaClient();
 
+// ✅ Tambahkan RouteContext di parameter kedua
 export async function GET(
   req: NextRequest,
   context: { params: { id: string } }
@@ -23,12 +28,11 @@ export async function GET(
   });
 }
 
-// PUT EDIT
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  const { id } = params;
+  const { id } = context.params;
   const body = await req.json();
 
   const updated = await prisma.information.update({
@@ -48,12 +52,11 @@ export async function PUT(
   });
 }
 
-// DELETE
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  const { id } = params;
+  const { id } = context.params;
 
   await prisma.information.delete({ where: { id } });
 
