@@ -5,7 +5,7 @@ import { MdEmail } from "react-icons/md";
 export default function Contact() {
   return (
     <>
-      <section className="pt-28 px-6 pb-16 bg-[#f4f4f4] min-h-screen">
+      <section className="pt-10 px-6 pb-16 bg-[#f4f4f4] min-h-screen">
         <h1 className="text-3xl font-bold text-center text-[#0E1A35] mb-8">
           Hubungi Kami
         </h1>

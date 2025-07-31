@@ -1,7 +1,7 @@
 export default function ProfilePage() {
   return (
     <>
-      <main className="pt-30 min-h-screen px-6 md:px-16 py-10 bg-[#f9f9f9] text-gray-800">
+      <main className="min-h-screen px-6 md:px-16 py-10 bg-[#f9f9f9] text-gray-800">
         <h1 className="text-3xl font-bold text-[#0E1A35] mb-8 text-center">
           Profile Sekolah
         </h1>
@@ -41,7 +41,7 @@ export default function ProfilePage() {
           <h2 className="text-xl font-bold mt-6 border-l-5 border-[#FAA41A] pl-3 mb-3">
             Misi
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-md text-gray-700">
+          <ul className="sm:text-justify list-disc list-inside space-y-2 text-md text-gray-700">
             <li>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Assumenda, mollitia.

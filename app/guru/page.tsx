@@ -46,7 +46,7 @@ const teachers = [
 export default function GuruList() {
   return (
     <>
-      <div className="relative px-8 py-16 bg-[#f7f7f7] pt-28">
+      <div className="relative px-8 py-16 bg-[#f7f7f7]">
         <h1 className="text-3xl font-bold text-[#0E1A35] mb-8 text-center">
           Guru dan Staff
         </h1>

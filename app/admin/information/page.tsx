@@ -53,18 +53,19 @@ export default function AdminInfoPage() {
     <>
       <AdminNavbar />
       <div className="p-6 pt-28">
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-6">
           <h1 className="text-2xl font-bold text-gray-800">
             Informasi Sekolah
           </h1>
           <Link
             href="/admin/information/create"
-            className="bg-[#FAA41A] hover:bg-[#f77f00] text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
+            className="w-full md:w-auto bg-[#FAA41A] hover:bg-[#f77f00] text-white px-4 py-2 rounded-lg flex items-center justify-center md:justify-start gap-2 transition-colors"
           >
             <FaPlus />
             Tambah Informasi
           </Link>
         </div>
+
         <div className="bg-white rounded-lg shadow-sm border">
           <div className="overflow-x-auto">
             <table className="min-w-full">

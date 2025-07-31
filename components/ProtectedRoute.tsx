@@ -21,21 +21,6 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
         return;
       }
 
-      // Optional: Verify token dengan backend
-      // fetch("/api/verify-token", {
-      //   headers: { Authorization: `Bearer ${token}` }
-      // })
-      // .then(res => {
-      //   if (!res.ok) throw new Error("Invalid token");
-      //   setIsAuthenticated(true);
-      // })
-      // .catch(() => {
-      //   localStorage.removeItem("access-token");
-      //   router.push("/login");
-      // })
-      // .finally(() => setIsLoading(false));
-
-      // Untuk sementara, langsung set authenticated jika ada token
       setIsAuthenticated(true);
       setIsLoading(false);
     };
@@ -55,7 +40,7 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   }
 
   if (!isAuthenticated) {
-    return null; // Router akan redirect ke login
+    return null;
   }
 
   return <>{children}</>;

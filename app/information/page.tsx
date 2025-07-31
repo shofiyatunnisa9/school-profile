@@ -29,7 +29,7 @@ export default function InformationPage() {
   }, []);
 
   return (
-    <div className="pt-28 px-6 max-w-6xl mx-auto">
+    <div className="pt-10 px-6 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-[#0E1A35] text-center">
         Informasi Sekolah
       </h1>

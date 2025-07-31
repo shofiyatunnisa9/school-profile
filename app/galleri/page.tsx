@@ -25,7 +25,7 @@ export default function GalleriesPage() {
   return (
     <div>
       <div className="p-5 relative z-0">
-        <h1 className="text-3xl font-bold text-[#0E1A35] mb-8 text-center pt-28">
+        <h1 className="text-3xl font-bold text-[#0E1A35] mb-8 text-center pt-5">
           Galleri Sekolah Xyz
         </h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 relative z-0">
