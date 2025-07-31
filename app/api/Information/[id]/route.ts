@@ -1,13 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
-import type { NextApiRequest } from "next";
-import type { NextRequest as AppRequest } from "next/server";
-import type { NextFetchEvent } from "next/server";
-import RouteContext from "next";
 
 const prisma = new PrismaClient();
 
-// ✅ Tambahkan RouteContext di parameter kedua
 export async function GET(
   req: NextRequest,
   context: { params: { id: string } }
