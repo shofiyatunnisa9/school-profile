@@ -26,10 +26,12 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-9 left-0 right-0 z-50 bg-[#E5E5E5] shadow px-4 py-3 flex justify-between items-center ">
-        <div className="flex items-center gap-2">
-          <img src="/logo1.png" alt="Logo" className="w-10 h-10" />
-          <h1 className="text-[#0E1A35] font-bold text-lg">Sekolah Xyz</h1>
-        </div>
+        <Link href={"/"}>
+          <div className="flex items-center gap-2">
+            <img src="/logo1.png" alt="Logo" className="w-10 h-10" />
+            <h1 className="text-[#0E1A35] font-bold text-lg">Sekolah Xyz</h1>
+          </div>
+        </Link>
         <ul className="hidden md:flex gap-6 text-[#0E1A35] font-medium">
           {navLink.map((link) => (
             <li key={link.href} className="flex items-center gap-1">
@@ -58,12 +60,12 @@ export default function Navbar() {
 
       {/* Mobile sidebar */}
       <div
-        className={`fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-40 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed pt-25 left-0 w-64 h-full bg-white shadow-lg z-40 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex justify-between items-center p-4 border-b">
-          <h2 className="text-lg font-semibold text-[#0E1A35]">Menu</h2>
+          <h2 className="text-lg font-bold text-[#0E1A35]">Menu</h2>
           <button onClick={() => setIsOpen(false)}>
             <HiX className="w-6 h-6 text-gray-700" />
           </button>

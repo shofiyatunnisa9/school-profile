@@ -1,8 +1,10 @@
 "use client";
-import AdminNavbar from "@/components/navbarAdmin";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
+import AdminNavbar from "../../../../components/navbarAdmin";
+import { GoX } from "react-icons/go";
+import { FaCheck } from "react-icons/fa";
 
 export default function CreatePage() {
   const [title, setTitle] = useState("");
@@ -83,10 +85,10 @@ export default function CreatePage() {
   return (
     <>
       <AdminNavbar />
-      <div className="p-6 pt-28">
+      <div className="p-6 pt-20">
         <div className="max-w-2xl mx-auto">
           <div className="mb-6">
-            <h1 className="text-2xl font-bold text-gray-800 mb-2 text-center">
+            <h1 className="text-2xl font-bold text-[#14213D] mb-2 text-center">
               Tambah Informasi Baru
             </h1>
           </div>
@@ -99,7 +101,7 @@ export default function CreatePage() {
                   htmlFor="title"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  Judul Informasi *
+                  Judul Informasi
                 </label>
                 <input
                   id="title"
@@ -108,7 +110,7 @@ export default function CreatePage() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent"
                 />
               </div>
 
@@ -118,48 +120,17 @@ export default function CreatePage() {
                   htmlFor="image"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  Gambar Informasi
+                  Upload Gambar
                 </label>
                 <div className="space-y-3">
                   {/* File Upload */}
                   <div>
-                    <label
-                      htmlFor="imageFile"
-                      className="block text-sm text-gray-600 mb-2"
-                    >
-                      Upload dari device:
-                    </label>
                     <input
                       id="imageFile"
                       type="file"
                       accept="image/*"
                       onChange={handleImageChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                    <p className="text-xs text-gray-500 mt-1">
-                      Format: JPG, PNG, GIF. Maksimal 5MB
-                    </p>
-                  </div>
-
-                  {/* URL Input */}
-                  <div>
-                    <label
-                      htmlFor="imageUrl"
-                      className="block text-sm text-gray-600 mb-2"
-                    >
-                      Atau masukkan URL gambar:
-                    </label>
-                    <input
-                      id="imageUrl"
-                      type="url"
-                      placeholder="https://example.com/image.jpg"
-                      value={image}
-                      onChange={(e) => {
-                        setImage(e.target.value);
-                        setImageFile(null); // Reset file input
-                      }}
-                      disabled={!!imageFile}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
+                      className="w-full px-3 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent"
                     />
                   </div>
                 </div>
@@ -171,23 +142,23 @@ export default function CreatePage() {
                   htmlFor="content"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  Konten Informasi *
+                  Keterangan Informasi
                 </label>
                 <textarea
                   id="content"
-                  placeholder="Masukkan konten informasi"
+                  placeholder="Masukkan Keterangan informasi"
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                   required
                   rows={6}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent resize-none"
                 />
               </div>
 
               {/* Preview Image */}
               {(image || imageFile) && (
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-[#14213D] mb-2">
                     Preview Gambar
                   </label>
                   <div className="w-32 h-24 bg-gray-100 rounded-lg overflow-hidden border">
@@ -224,29 +195,16 @@ export default function CreatePage() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-6 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"
+                  className="bg-[#14213D] hover:bg-[#7597e0] disabled:bg-[#131a2afe] text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2 cursor-pointer"
                 >
                   {isLoading ? (
                     <>
-                      <svg
-                        className="animate-spin h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        ></circle>
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        ></path>
-                      </svg>
+                      <FaCheck />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
                       Menyimpan...
                     </>
                   ) : (
@@ -272,8 +230,9 @@ export default function CreatePage() {
                 <button
                   type="button"
                   onClick={() => router.push("/admin/information")}
-                  className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-2 rounded-lg font-medium transition-colors"
+                  className="flex items-center gap-1 bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-2 rounded-lg font-medium transition-colors cursor-pointer"
                 >
+                  <GoX />
                   Batal
                 </button>
               </div>

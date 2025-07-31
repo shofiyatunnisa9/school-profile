@@ -3,10 +3,10 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactNode, useState } from "react";
 import TopHeader from "./topHeader";
-import Navbar from "@/app/component/navbar";
 import Footer from "./footer";
 import { usePathname } from "next/navigation";
 import { Toaster } from "sonner";
+import Navbar from "../app/component/navbar";
 
 export default function ClientLayout({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());

@@ -45,9 +45,15 @@ export default function InformationPage() {
                 />
               )}
               <div className="p-4">
-                <h2 className="text-lg font-semibold mb-2">{info.title}</h2>
+                <h2 className="text-lg font-semibold mb-2 text-[#040a16]">
+                  {info.title}
+                </h2>
                 <p className="text-sm text-gray-600 line-clamp-3">
                   {info.content}
+                </p>
+
+                <p className="text-sm text-[#FCA311] pt-5 font-bold">
+                  Baca Selengkapnya...
                 </p>
               </div>
             </div>

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
 import { useLogin } from "../hook/useAuth";
+import { Input } from "../../components/ui/input";
 
 export default function LoginPage() {
   const { mutate, isPending } = useLogin();

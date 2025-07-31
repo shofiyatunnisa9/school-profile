@@ -1,6 +1,6 @@
 "use client";
 
-import AdminNavbar from "@/components/navbarAdmin";
+import AdminNavbar from "../../../components/navbarAdmin";
 import WelcomeAdmin from "./welcome";
 
 export default function AdminPage() {

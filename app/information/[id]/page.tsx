@@ -71,7 +71,7 @@ export default function InfoDetail({
   }
 
   return (
-    <div className="pt-28 px-6 pb-16 max-w-4xl mx-auto text-[#0E1A35]">
+    <div className="pt-10 px-6 pb-16 max-w-4xl mx-auto text-[#0E1A35]">
       <button
         onClick={() => router.back()}
         className="flex items-center mb-4 gap-2 cursor-pointer hover:text-[#06070a]"

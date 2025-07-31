@@ -1,10 +1,10 @@
 "use client";
-import AdminNavbar from "@/components/navbarAdmin";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { toast } from "sonner";
+import AdminNavbar from "../../../components/navbarAdmin";
 
 type InformationProps = {
   id: string;
@@ -130,7 +130,7 @@ export default function AdminInfoPage() {
                           Edit
                         </Link>
                         <button
-                          className="text-[#e36414] hover:text-[#FAA41A] font-medium text-sm flex items-center gap-1 transition-colors"
+                          className="text-[#e36414] hover:text-[#FAA41A] font-medium text-sm flex items-center gap-1 transition-colors cursor-pointer"
                           onClick={() => handleDelete(info.id)}
                         >
                           <FaRegTrashAlt />
