@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 type Information = {
   id: string;
@@ -18,6 +19,7 @@ type ApiResponse = {
 
 export default function InformationPage() {
   const [informations, setInformations] = useState<Information[]>([]);
+  console.log(informations);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +40,9 @@ export default function InformationPage() {
           <Link key={info.id} href={`/information/${info.id}`}>
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
               {info.image && (
-                <img
+                <Image
+                  width={300}
+                  height={300}
                   src={info.image}
                   alt={info.title}
                   className="w-full h-48 object-cover"

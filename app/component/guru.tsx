@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -96,7 +97,9 @@ export default function GuruListHome() {
             key={index}
             className="min-w-[270px] max-w-[250px] bg-white rounded-lg overflow-hidden shadow-md flex flex-col gap-3 group"
           >
-            <img
+            <Image
+              width={300}
+              height={300}
               src={item.image}
               alt={item.name}
               className="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105"

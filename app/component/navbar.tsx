@@ -10,6 +10,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,13 @@ export default function Navbar() {
       <nav className="fixed top-9 left-0 right-0 z-50 bg-[#E5E5E5] shadow px-4 py-3 flex justify-between items-center ">
         <Link href={"/"}>
           <div className="flex items-center gap-2">
-            <img src="/logo1.png" alt="Logo" className="w-10 h-10" />
+            <Image
+              width={300}
+              height={300}
+              src="/logo1.png"
+              alt="Logo"
+              className="w-10 h-10"
+            />
             <h1 className="text-[#0E1A35] font-bold text-lg">Sekolah Xyz</h1>
           </div>
         </Link>

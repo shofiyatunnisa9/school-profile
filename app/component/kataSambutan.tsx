@@ -1,10 +1,14 @@
+import Image from "next/image";
+
 export default function Sambutan() {
   return (
     <section className="py-12 px-10 bg-white">
       <div className="max-w-4xl mx-auto bg-[#ffffff] rounded-xl overflow-hidden flex flex-col md:flex-row shadow">
         {/* Foto kepala sekolah */}
         <div className="md:w-1/3 flex items-center justify-center p-4">
-          <img
+          <Image
+            width={300}
+            height={300}
             src="/kepala_sekolah.jpg"
             alt="Kepala Sekolah"
             className="w-44 h-60 object-cover border-2 border-[#0E1A35] rounded-md"

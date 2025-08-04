@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { notFound, useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
+import Image from "next/image";
 
 type InformationProps = {
   id: string;
@@ -80,7 +81,9 @@ export default function InfoDetail({
       </button>
       <h1 className="text-3xl font-bold mb-4 text-center">{info.title}</h1>
       {info.image && (
-        <img
+        <Image
+          width={300}
+          height={300}
           src={info.image}
           alt={info.title}
           className="w-full h-full object-cover rounded-lg mb-6"

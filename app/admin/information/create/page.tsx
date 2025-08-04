@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import AdminNavbar from "../../../../components/navbarAdmin";
 import { GoX } from "react-icons/go";
 import { FaCheck } from "react-icons/fa";
+import Image from "next/image";
 
 export default function CreatePage() {
   const [title, setTitle] = useState("");
@@ -75,7 +76,7 @@ export default function CreatePage() {
       } else {
         toast.error("Gagal membuat informasi");
       }
-    } catch (error) {
+    } catch {
       toast.error("Terjadi kesalahan");
     } finally {
       setIsLoading(false);
@@ -163,13 +164,17 @@ export default function CreatePage() {
                   </label>
                   <div className="w-32 h-24 bg-gray-100 rounded-lg overflow-hidden border">
                     {imageFile ? (
-                      <img
+                      <Image
+                        width={300}
+                        height={300}
                         src={URL.createObjectURL(imageFile)}
                         alt="Preview"
                         className="object-cover w-full h-full"
                       />
                     ) : (
-                      <img
+                      <Image
+                        width={300}
+                        height={300}
                         src={image}
                         alt="Preview"
                         className="object-cover w-full h-full"

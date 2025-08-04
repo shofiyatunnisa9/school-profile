@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -25,7 +26,7 @@ export default function InfoHome() {
       if (res.ok) setInfo(result.data);
     };
     fetchData();
-  });
+  }, []);
 
   return (
     <section className="bg-white py-10 px-6 md:px-20">
@@ -44,7 +45,9 @@ export default function InfoHome() {
           <Link key={item.id} href={`information/${item.id}`}>
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
               {item.image && (
-                <img
+                <Image
+                  width={300}
+                  height={300}
                   src={item.image}
                   alt={item.title}
                   className="w-full h-48 object-cover"

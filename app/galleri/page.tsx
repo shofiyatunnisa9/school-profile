@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function GalleriesPage() {
   const galleries = [
     {
@@ -34,7 +36,9 @@ export default function GalleriesPage() {
               key={idx}
               className="relative group overflow-hidden rounded-sm shadow-md"
             >
-              <img
+              <Image
+                width={300}
+                height={300}
                 src={item.image}
                 alt={`Foto ${idx + 1}`}
                 className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-110"

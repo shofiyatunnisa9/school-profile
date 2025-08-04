@@ -1,5 +1,27 @@
 @import "tailwindcss";
-@import "tw-animate-css";
+
+@tailwind utilities;
+
+/* Base reset styling */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
 
 @custom-variant dark (&:is(.dark *));
 

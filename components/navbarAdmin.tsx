@@ -6,6 +6,7 @@ import { FaHome, FaInfoCircle } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import { LuLogOut } from "react-icons/lu";
 import { useLogout } from "../app/hook/useAuth";
+import Image from "next/image";
 
 export default function AdminNavbar() {
   const { logout } = useLogout();
@@ -26,7 +27,13 @@ export default function AdminNavbar() {
       <nav className="fixed w-full bg-[#0E1A35] text-white px-6 py-4 flex justify-between items-center shadow z-50">
         <Link href={"/admin/dashboard"}>
           <div className="flex items-center gap-2">
-            <img src="/logo1.png" alt="Logo" className="w-10 h-10" />
+            <Image
+              width={300}
+              height={300}
+              src="/logo1.png"
+              alt="Logo"
+              className="w-10 h-10"
+            />
             <h1 className="font-bold text-lg">Admin Sekolah Xyz</h1>
           </div>
         </Link>

@@ -5,6 +5,7 @@ import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { toast } from "sonner";
 import AdminNavbar from "../../../components/navbarAdmin";
+import Image from "next/image";
 
 type InformationProps = {
   id: string;
@@ -95,7 +96,9 @@ export default function AdminInfoPage() {
                     <td className="py-4 px-6">
                       <div className="w-20 h-14 bg-gray-100 rounded-lg overflow-hidden border">
                         {info.image ? (
-                          <img
+                          <Image
+                            width={300}
+                            height={300}
                             src={info.image}
                             alt={info.title}
                             className="object-cover w-full h-full"
