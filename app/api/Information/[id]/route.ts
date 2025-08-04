@@ -109,7 +109,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ): Promise<NextResponse> {
   try {
-    const { id } = await params;
+    const { id } = params;
 
     const info = await prisma.information.findUnique({ where: { id } });
 
