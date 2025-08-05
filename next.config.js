@@ -1,6 +1,5 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     remotePatterns: [
       {
@@ -9,14 +8,18 @@ const nextConfig: NextConfig = {
         pathname: "**",
       },
       {
+        protocol: "https",
         hostname: "cdn0-production-images-kly.akamaized.net",
+        pathname: "**",
       },
       {
+        protocol: "https",
         hostname: "cdn.antaranews.com",
+        pathname: "**",
       },
     ],
   },
-  /* config options here */
+  // Tambahkan config lain di sini jika perlu
 };
 
-export default nextConfig;
+module.exports = nextConfig;

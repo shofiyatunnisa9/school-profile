@@ -1,10 +1,10 @@
 "use client";
-
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-type InfoHome = {
+type InfoHomeProps = {
   id: string;
   title: string;
   content: string;
@@ -14,11 +14,11 @@ type InfoHome = {
 
 type ApiRes = {
   code: number;
-  data: InfoHome[];
+  data: InfoHomeProps[];
 };
 
 export default function InfoHome() {
-  const [info, setInfo] = useState<InfoHome[]>([]);
+  const [info, setInfo] = useState<InfoHomeProps[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("api/Information");
