@@ -17,9 +17,13 @@ const nextConfig = {
         hostname: "cdn.antaranews.com",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "**",
+      },
     ],
   },
-  // Tambahkan config lain di sini jika perlu
 };
 
 module.exports = nextConfig;
